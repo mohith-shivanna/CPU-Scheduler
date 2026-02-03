@@ -24,7 +24,8 @@ A scalable workload scheduler that intelligently distributes computational tasks
 cmake -S . -B build-macos -DCPU_ONLY=ON
 cmake --build build-macos -j
 
-RUN EXAMPLE
+
+##RUN EXAMPLE
 
 # Fused Multiply-Add
 ./build-macos/sched 65536 8 2 MultiplyAdd 256 1 1
@@ -32,7 +33,7 @@ RUN EXAMPLE
 # Matrix Multiplication
 ./build-macos/sched 256 4 2 MatrixMultiply 16 1 1
 
-USAGE
+##USAGE
 
 ./sched <meanVectorSize> <batchSize> <maxCores> <kernelName> <threadsPerBlock> <maxCoresPerKernel> <verbose>
 Parameters:
@@ -46,14 +47,14 @@ maxCoresPerKernel - Max cores per kernel instance
 verbose - Verbose output (0/1)
 
 
-Web Interface
+##Web Interface
 
 Start the Flask web server:
 cd webapp
 python app.py
 
 
-PROJECT STRUCTURE
+##PROJECT STRUCTURE
 
 
 ├── main.cpp                          # Entry point and CLI argument handling
@@ -69,7 +70,7 @@ PROJECT STRUCTURE
 
 
 
-Adding Custom Applications
+#Adding Custom Applications
 
 The scheduler can be extended with custom kernels:
 
@@ -85,7 +86,7 @@ FinishHostExecution() - Finalize and record results
 Register in main.cpp - Add batch creation and experiment execution
 
 
-Output
+#Output
 Results are saved as CSV files in results:
 
 MatrixMultiplyKernelResults.csv - Per-kernel timing data
@@ -93,10 +94,10 @@ MatrixMultiplyBatchResults.csv - Aggregate batch results
 Similar files for MultiplyAdd
 
 
-Contributing
+#Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
 
-References
+#References
 
 Based on the Multi-GPU Scheduler framework (adapted for CPU-only execution)
