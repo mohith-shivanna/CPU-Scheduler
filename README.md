@@ -23,7 +23,7 @@ A scalable workload scheduler that intelligently distributes computational tasks
 ```bash
 cmake -S . -B build-macos -DCPU_ONLY=ON
 cmake --build build-macos -j
-
+    
 
 ##RUN EXAMPLE
 
